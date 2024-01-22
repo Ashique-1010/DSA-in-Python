@@ -6,6 +6,7 @@ class Sortings:
     create an object and any sorting algorithm can be used by calling it as a method. c 
     """
     
+    #Selection sort-->
     def SelectionSort(self,L):
         n = len(L)
         if n < 1:
@@ -18,6 +19,7 @@ class Sortings:
             (L[i],L[mpos]) = (L[mpos], L[i])
         return(L)
 
+    # Iterative insertion sort-->
     def InsertionSort(self,L):
         n = len(L)
         if n < 1:
@@ -29,8 +31,9 @@ class Sortings:
                 j = j-1
         return(L)
 
-    def Insert(self,L, v):      #recursive method need self to be defined and the method to be called on itself
-        n = len(L)              #only define when method is defined, later called by self.method
+    # Recursive insertion sort-->
+    def Insert(self,L, v):      
+        n = len(L)              
         if n==0:
             return([v])
         if v >= L[-1]:
@@ -44,6 +47,7 @@ class Sortings:
         L = self.Insert(self.ISort(L[:-1]), L[-1])
         return(L)
 
+    # Merge sort-->
     def Merge(self,A, B):
         (m,n) = (len(A), len(B))
         (C,i,j,k) = ([],0,0,0)
@@ -61,6 +65,7 @@ class Sortings:
                 C.append(B[j])
                 (j,k) = (j+1,k+1)
         return(C)
+    
     def MergeSort(self,A):
         n = len(A)
         if n <= 1:
@@ -70,6 +75,7 @@ class Sortings:
         B = self.Merge(L, R)
         return(B)
 
+    # Quick sort-->
     def QuickSort(self,L, l,r):
         if(r-l <= 1):
             return(L)
